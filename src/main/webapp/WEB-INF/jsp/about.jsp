@@ -56,12 +56,12 @@
 		
 	<div id="fh5co-offcanvass">
 		<a href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i> </a>
-		<h1 class="fh5co-logo"><a class="navbar-brand" href="index.jsp">Hydrogen</a></h1>
+		<h1 class="fh5co-logo"><a class="navbar-brand" href="index.html">Hydrogen</a></h1>
 		<ul>
-			<li><a href="index.jsp">Home</a></li>
-			<li class="active"><a href="about.jsp">About</a></li>
-			<li><a href="pricing.jsp">Pricing</a></li>
-			<li><a href="contact.jsp">Contact</a></li>
+			<li><a href="index.html">Home</a></li>
+			<li class="active"><a href="about.html">About</a></li>
+			<li><a href="pricing.html">Pricing</a></li>
+			<li><a href="contact.html">Contact</a></li>
 		</ul>
 		<h3 class="fh5co-lead">Connect with us</h3>
 		<p class="fh5co-social-icons">
@@ -77,7 +77,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
-					<a class="navbar-brand" href="index.jsp">Hydrogen</a>
+					<a class="navbar-brand" href="index.html">Hydrogen</a>
 				</div>
 			</div>
 		</div>
@@ -118,7 +118,7 @@
 						<a href="#"><i class="icon-dribbble"></i></a>
 						<a href="#"><i class="icon-youtube"></i></a>
 					</p>
-					<p><small>&copy; Hydrogen Free HTML5 Template. All Rights Reserved. <br>More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> | Images by: <a href="http://pexels.com" target="_blank">Pexels</a> </small></p>
+					<p><small>&copy; Hydrogen Free HTML5 Template. All Rights Reserved. </small> </p>
 				</div>
 			</div>
 		</div>
