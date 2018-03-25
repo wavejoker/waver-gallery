@@ -5,9 +5,13 @@ import java.util.Date;
 public class Photo {
     private Long id;
 
-    private String src;
+    private Long aid;
 
-    private Date creattime;
+    private String desc;
+
+    private String info;
+
+    private Date createtime;
 
     public Long getId() {
         return id;
@@ -17,19 +21,35 @@ public class Photo {
         this.id = id;
     }
 
-    public String getSrc() {
-        return src;
+    public Long getAid() {
+        return aid;
     }
 
-    public void setSrc(String src) {
-        this.src = src == null ? null : src.trim();
+    public void setAid(Long aid) {
+        this.aid = aid;
     }
 
-    public Date getCreattime() {
-        return creattime;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setCreattime(Date creattime) {
-        this.creattime = creattime;
+    public void setDesc(String desc) {
+        this.desc = desc == null ? null : desc.trim();
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info == null ? null : info.trim();
+    }
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 }
