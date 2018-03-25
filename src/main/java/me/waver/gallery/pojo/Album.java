@@ -5,15 +5,17 @@ import java.util.Date;
 public class Album {
     private Long id;
 
+    private String desc;
+
     private String name;
 
-    private Integer status;
+    private Integer type;
 
-    private String passwd;
+    private String password;
 
-    private Date creattime;
+    private Date createtime;
 
-    private String desc;
+    private Date updatetime;
 
     public Long getId() {
         return id;
@@ -21,6 +23,14 @@ public class Album {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc == null ? null : desc.trim();
     }
 
     public String getName() {
@@ -31,35 +41,35 @@ public class Album {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getType() {
+        return type;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-    public String getPasswd() {
-        return passwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswd(String passwd) {
-        this.passwd = passwd == null ? null : passwd.trim();
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
     }
 
-    public Date getCreattime() {
-        return creattime;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setCreattime(Date creattime) {
-        this.creattime = creattime;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    public String getDesc() {
-        return desc;
+    public Date getUpdatetime() {
+        return updatetime;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
     }
 }

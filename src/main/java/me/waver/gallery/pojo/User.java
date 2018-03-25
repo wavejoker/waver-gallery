@@ -5,17 +5,21 @@ import java.util.Date;
 public class User {
     private Long id;
 
-    private Integer phone;
-
     private String username;
 
     private String password;
 
+    private Integer phone;
+
     private String head;
 
-    private Date creattime;
+    private String signature;
 
-    private String motto;
+    private String qq;
+
+    private String wechat;
+
+    private Date createtime;
 
     public Long getId() {
         return id;
@@ -23,14 +27,6 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getPhone() {
-        return phone;
-    }
-
-    public void setPhone(Integer phone) {
-        this.phone = phone;
     }
 
     public String getUsername() {
@@ -49,6 +45,14 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
+    public Integer getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
+    }
+
     public String getHead() {
         return head;
     }
@@ -57,19 +61,35 @@ public class User {
         this.head = head == null ? null : head.trim();
     }
 
-    public Date getCreattime() {
-        return creattime;
+    public String getSignature() {
+        return signature;
     }
 
-    public void setCreattime(Date creattime) {
-        this.creattime = creattime;
+    public void setSignature(String signature) {
+        this.signature = signature == null ? null : signature.trim();
     }
 
-    public String getMotto() {
-        return motto;
+    public String getQq() {
+        return qq;
     }
 
-    public void setMotto(String motto) {
-        this.motto = motto == null ? null : motto.trim();
+    public void setQq(String qq) {
+        this.qq = qq == null ? null : qq.trim();
+    }
+
+    public String getWechat() {
+        return wechat;
+    }
+
+    public void setWechat(String wechat) {
+        this.wechat = wechat == null ? null : wechat.trim();
+    }
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 }

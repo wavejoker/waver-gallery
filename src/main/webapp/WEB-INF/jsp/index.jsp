@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Hydrogen &mdash; A free HTML5 Template </title>
+    <title>Waver's Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free HTML5 Template by FREEHTML5.CO"/>
     <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive"/>
@@ -43,6 +43,8 @@
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="bookmark" href="images/favicon.ico">
     <!-- Modernizr JS -->
     <script src="js/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
@@ -59,7 +61,6 @@
     <ul>
         <li class="active"><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
     <h3 class="fh5co-lead">Connect with us</h3>
@@ -365,7 +366,7 @@
             <div class="col-md-12 text-center">
                 <p>这里是连接</p>
                 <p>
-                    <small>Powered by <a href="http://www.cssmoban.com/" target="_blank" title="waver-gallery">waver-gallery</a>
+                    <small>Powered by <a href="/index.html" target="_blank" title="waver-gallery">waver-gallery</a>
                     </small>
                 </p>
             </div>

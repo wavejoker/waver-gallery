@@ -3,14 +3,14 @@
 <mapper namespace="me.waver.gallery.mapper.UserMapper" >
   <resultMap id="BaseResultMap" type="me.waver.gallery.pojo.User" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="phone" property="phone" jdbcType="INTEGER" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="INTEGER" />
     <result column="head" property="head" jdbcType="VARCHAR" />
-    <result column="creattime" property="creattime" jdbcType="TIMESTAMP" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="me.waver.gallery.pojo.User" extends="BaseResultMap" >
-    <result column="motto" property="motto" jdbcType="LONGVARCHAR" />
+    <result column="signature" property="signature" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -71,27 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, phone, username, password, head, creattime
+    id, username, password, phone, head, signature, qq, wechat, createtime
   </sql>
-  <sql id="Blob_Column_List" >
-    motto
-  </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="me.waver.gallery.pojo.UserExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from user
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="me.waver.gallery.pojo.UserExample" >
     select
     <if test="distinct" >
@@ -106,11 +87,9 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from user
     where id = #{id,jdbcType=BIGINT}
   </select>
@@ -125,12 +104,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="me.waver.gallery.pojo.User" >
-    insert into user (id, phone, username, 
-      password, head, creattime, 
-      motto)
-    values (#{id,jdbcType=BIGINT}, #{phone,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{head,jdbcType=VARCHAR}, #{creattime,jdbcType=TIMESTAMP}, 
-      #{motto,jdbcType=LONGVARCHAR})
+    insert into user (id, username, password, 
+      phone, head, signature, 
+      qq, wechat, createtime
+      )
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=INTEGER}, #{head,jdbcType=VARCHAR}, #{signature,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="me.waver.gallery.pojo.User" >
     insert into user
@@ -138,31 +119,34 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="phone != null" >
-        phone,
-      </if>
       <if test="username != null" >
         username,
       </if>
       <if test="password != null" >
         password,
       </if>
+      <if test="phone != null" >
+        phone,
+      </if>
       <if test="head != null" >
         head,
       </if>
-      <if test="creattime != null" >
-        creattime,
+      <if test="signature != null" >
+        signature,
       </if>
-      <if test="motto != null" >
-        motto,
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="wechat != null" >
+        wechat,
+      </if>
+      <if test="createtime != null" >
+        createtime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
-      </if>
-      <if test="phone != null" >
-        #{phone,jdbcType=INTEGER},
       </if>
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
@@ -170,14 +154,23 @@
       <if test="password != null" >
         #{password,jdbcType=VARCHAR},
       </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=INTEGER},
+      </if>
       <if test="head != null" >
         #{head,jdbcType=VARCHAR},
       </if>
-      <if test="creattime != null" >
-        #{creattime,jdbcType=TIMESTAMP},
+      <if test="signature != null" >
+        #{signature,jdbcType=VARCHAR},
       </if>
-      <if test="motto != null" >
-        #{motto,jdbcType=LONGVARCHAR},
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -193,38 +186,31 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.phone != null" >
-        phone = #{record.phone,jdbcType=INTEGER},
-      </if>
       <if test="record.username != null" >
         username = #{record.username,jdbcType=VARCHAR},
       </if>
       <if test="record.password != null" >
         password = #{record.password,jdbcType=VARCHAR},
       </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone,jdbcType=INTEGER},
+      </if>
       <if test="record.head != null" >
         head = #{record.head,jdbcType=VARCHAR},
       </if>
-      <if test="record.creattime != null" >
-        creattime = #{record.creattime,jdbcType=TIMESTAMP},
+      <if test="record.signature != null" >
+        signature = #{record.signature,jdbcType=VARCHAR},
       </if>
-      <if test="record.motto != null" >
-        motto = #{record.motto,jdbcType=LONGVARCHAR},
+      <if test="record.qq != null" >
+        qq = #{record.qq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechat != null" >
+        wechat = #{record.wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map" >
-    update user
-    set id = #{record.id,jdbcType=BIGINT},
-      phone = #{record.phone,jdbcType=INTEGER},
-      username = #{record.username,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR},
-      head = #{record.head,jdbcType=VARCHAR},
-      creattime = #{record.creattime,jdbcType=TIMESTAMP},
-      motto = #{record.motto,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -232,11 +218,14 @@
   <update id="updateByExample" parameterType="map" >
     update user
     set id = #{record.id,jdbcType=BIGINT},
-      phone = #{record.phone,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=INTEGER},
       head = #{record.head,jdbcType=VARCHAR},
-      creattime = #{record.creattime,jdbcType=TIMESTAMP}
+      signature = #{record.signature,jdbcType=VARCHAR},
+      qq = #{record.qq,jdbcType=VARCHAR},
+      wechat = #{record.wechat,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -244,44 +233,43 @@
   <update id="updateByPrimaryKeySelective" parameterType="me.waver.gallery.pojo.User" >
     update user
     <set >
-      <if test="phone != null" >
-        phone = #{phone,jdbcType=INTEGER},
-      </if>
       <if test="username != null" >
         username = #{username,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
       </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=INTEGER},
+      </if>
       <if test="head != null" >
         head = #{head,jdbcType=VARCHAR},
       </if>
-      <if test="creattime != null" >
-        creattime = #{creattime,jdbcType=TIMESTAMP},
+      <if test="signature != null" >
+        signature = #{signature,jdbcType=VARCHAR},
       </if>
-      <if test="motto != null" >
-        motto = #{motto,jdbcType=LONGVARCHAR},
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="me.waver.gallery.pojo.User" >
-    update user
-    set phone = #{phone,jdbcType=INTEGER},
-      username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      head = #{head,jdbcType=VARCHAR},
-      creattime = #{creattime,jdbcType=TIMESTAMP},
-      motto = #{motto,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=BIGINT}
-  </update>
   <update id="updateByPrimaryKey" parameterType="me.waver.gallery.pojo.User" >
     update user
-    set phone = #{phone,jdbcType=INTEGER},
-      username = #{username,jdbcType=VARCHAR},
+    set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=INTEGER},
       head = #{head,jdbcType=VARCHAR},
-      creattime = #{creattime,jdbcType=TIMESTAMP}
+      signature = #{signature,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>
