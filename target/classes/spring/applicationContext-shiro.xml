@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="avicit.shirorolefilter" class="com.demo.api.sysshirolog.filter.ShiroRolesOrFilterAPI">
+    </bean>
+
+    <bean id="com.shiro.passwordEncoder" class="com.demo.core.shiroSecurity.passwordencoder.ShaPasswordEncoder"></bean>
+
+
+    <bean id="shiroCacheManager" class="com.demo.core.shiroSecurity.shiroCache.ShiroCacheManager">
+        <property name="cacheName" value="SecurityShiroCache"></property>
+    </bean>
+
+
+    <bean id="dbAuthRealm" class="com.demo.api.sysshirolog.impl.ShiroSecurityAPIDbAuthRealm">
+    </bean>
+
+    <bean id="shiroAuthServiceapi" class="com.demo.api.sysshirolog.impl.ShiroAuthAPIServiceImpl">
+    </bean>
+
+    <bean id="shirosessionManager" class="org.apache.shiro.session.mgt.DefaultSessionManager">
+        <property name="sessionDAO" ref="shirosessionDAO"/>
+    </bean>
+    <bean id="shirosessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
+        <property name="cacheManager" ref="shiroCacheManager"/>
+
+    </bean>
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="dbAuthRealm"/>
+        <property name="cacheManager" ref="shiroCacheManager"/>
+
+    </bean>
+
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" depends-on="com.shirorolefilter">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login/login.jsp"/>
+        <property name="unauthorizedUrl" value="/login/loginFailed.jsp"/>
+        <property name="filterChainDefinitions" value="#{shiroAuthServiceapi.loadFilterChainDefinitions()}"/>
+        <property name="filters">
+            <map>
+                &lt;!&ndash; 后续配置成个性化需求  需要在 filterChainDefinitions 配置&ndash;&gt;
+                <entry key="com" value-ref="com.shirorolefilter">
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+-->
+</beans>
