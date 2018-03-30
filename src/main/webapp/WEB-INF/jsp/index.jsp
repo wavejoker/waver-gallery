@@ -77,15 +77,12 @@
         <div class="row">
             <div class="col-md-12">
                 <a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="fa fa-bars"></i></a>
-                <a class="navbar-brand" href="index.html">Hydrogen</a>
+                <a class="navbar-brand" href="index.html">Waver Gallery</a>
             </div>
         </div>
     </div>
 </header>
 <!-- END .header -->
-
-<div class="copyrights">Collect from <a href="http://www.cssmoban.com/">手机网站模板</a></div>
-
 
 <div id="fh5co-main">
     <div class="container">
@@ -366,7 +363,7 @@
             <div class="col-md-12 text-center">
                 <p>这里是连接</p>
                 <p>
-                    <small>Powered by <a href="/index.html" target="_blank" title="waver-gallery">waver-gallery</a>
+                    <small>Powered by <a href="/index.html" target="_blank" title="waver-gallery">@waver-gallery</a>
                     </small>
                 </p>
             </div>

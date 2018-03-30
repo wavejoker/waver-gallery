@@ -5,4 +5,6 @@ package me.waver.gallery.service;
  * @date : 2018/2/26 22:03
  */
 public interface UserService {
+
+
 }

@@ -15,6 +15,12 @@ public class User {
 
     private String signature;
 
+    private Integer sex;
+
+    private String email;
+
+    private Date birthday;
+
     private String qq;
 
     private String wechat;
@@ -67,6 +73,30 @@ public class User {
 
     public void setSignature(String signature) {
         this.signature = signature == null ? null : signature.trim();
+    }
+
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public String getQq() {
